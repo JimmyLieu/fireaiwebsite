@@ -1,7 +1,23 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Home.css';
+import { useState, useEffect } from 'react';
 
 function Home() {
+  const [showScroll, setShowScroll] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScroll(false);
+      } else {
+        setShowScroll(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -15,7 +31,6 @@ function Home() {
             Protecting Lives with
             <span className="gradient-text"> AI-Powered</span> Fire Detection
           </motion.h1>
-          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -53,7 +68,7 @@ function Home() {
         <div className="stats-container">
           {[
             { number: '99.97%', label: 'Detection Accuracy' },
-            { number: '3X', label: 'Faster than tradiational Fire Detectors' },
+            { number: '3X', label: 'Faster than the traditional fire detector' },
             { number: '24/7', label: 'Monitoring' },
             { number: '1000+', label: 'Installations' }
           ].map((stat, index) => (
@@ -135,6 +150,32 @@ function Home() {
           <button className="primary-btn">Contact Us Now</button>
         </motion.div>
       </section>
+
+      <AnimatePresence>
+        {showScroll && (
+          <motion.div 
+            className="scroll-indicator-wrapper"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div 
+              className="scroll-indicator"
+              animate={{ 
+                y: [0, 12, 0] 
+              }}
+              transition={{ 
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <div className="scroll-arrow">↓</div>
+              <div className="scroll-text">Scroll</div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
