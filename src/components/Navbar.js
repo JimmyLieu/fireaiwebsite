@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../assets/flame.svg';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,8 @@ function Navbar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/">
+         <Link to="/" className="logo-link">
+            <img src={logo} alt="FireAI Logo" className="logo-image" />
             <span className="logo-text">Fire<span className="logo-ai">AI</span></span>
           </Link>
         </motion.div>

@@ -22,12 +22,26 @@
   
   /* Logo Styles */
   .nav-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  
+  .logo-image {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
   }
   
   .logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
     background: linear-gradient(45deg, #333, #666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -135,6 +149,14 @@
   
     .nav-links-mobile {
       display: flex;
+    }
+  
+    .logo-image {
+      height: 28px;
+    }
+  
+    .logo-text {
+      font-size: 1.5rem;
     }
   }
   
