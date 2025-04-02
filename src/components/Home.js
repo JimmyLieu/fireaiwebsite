@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import './Home.css';
 import { useState, useEffect } from 'react';
+import heroImage from '../assets/hero-image.jpg';
 
 function Home() {
   const [showScroll, setShowScroll] = useState(true);
@@ -56,10 +57,11 @@ function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Replace with the hero image */}
-          <div className="placeholder-image">
-            <span>AI Duck Mascot</span>
-          </div>
+          <img 
+    src={heroImage} 
+    alt="FireAI Detection System" 
+    className="hero-img"
+  />
         </motion.div>
       </section>
 
