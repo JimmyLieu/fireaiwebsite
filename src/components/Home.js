@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './Home.css';
 import { useState, useEffect } from 'react';
 import heroImage from '../assets/hero-image.jpg';
+import mockupImage from '../assets/NotificationScreen.png';
 
 function Home() {
   const [showScroll, setShowScroll] = useState(true);
@@ -138,7 +139,132 @@ function Home() {
           ))}
         </div>
       </section>
+      <section className="mockup-section">
+  <div className="mockup-split-container">
+    <motion.div 
+      className="mockup-content"
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <h2>Powerful Mobile Control</h2>
+      <p>Monitor your fire detection system from anywhere, anytime. Get real-time alerts and detailed analytics right at your fingertips.</p>
+      <ul className="app-features-list">
+        <li>Real-time monitoring dashboard</li>
+        <li>Instant push notifications</li>
+        <li>Easy device management</li>
+      </ul>
+      <button className="primary-btn">Download App</button>
+    </motion.div>
 
+    <motion.div
+      className="mockup-image-container"
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <img
+        src={mockupImage}
+        alt="FireAI Application Interface"
+        className="mockup-image"
+      />
+    </motion.div>
+  </div>
+</section>
+{/* Testimonials Section */}
+<section className="testimonials">
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+  >
+    What Our Clients Say
+  </motion.h2>
+  <div className="testimonials-grid">
+    {[
+      {
+        quote: "FireAI's detection system has transformed how we manage fire safety in our facility.",
+        author: "Jimmy Lieu",
+        position: "Facility Manager, Tech Corp"
+      },
+      {
+        quote: "The early warning system has already prevented two potential incidents. Incredible technology!",
+        author: "Kacey Lieu",
+        position: "Safety Director, Manufacturing Inc."
+      },
+      {
+        quote: "Implementation was smooth and the results were immediate. Highly recommended.",
+        author: "Antonio Lieu",
+        position: "Building Manager, Plaza Hotels"
+      }
+    ].map((testimonial, index) => (
+      <motion.div
+        key={testimonial.author}
+        className="testimonial-card"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.2 }}
+        whileHover={{ scale: 1.02 }}
+      >
+        <div className="quote">{testimonial.quote}</div>
+        <div className="author">{testimonial.author}</div>
+        <div className="position">{testimonial.position}</div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+{/* How It Works Section */}
+<section className="how-it-works">
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+  >
+    How FireAI Works
+  </motion.h2>
+  <div className="steps-container">
+    {[
+      {
+        step: "1",
+        title: "Installation",
+        description: "Quick and non-intrusive setup of AI-powered sensors"
+      },
+      {
+        step: "2",
+        title: "24/7 Monitoring",
+        description: "Continuous analysis of environmental data"
+      },
+      {
+        step: "3",
+        title: "Early Detection",
+        description: "AI algorithms identify potential fire hazards in real-time"
+      },
+      {
+        step: "4",
+        title: "Instant Alert",
+        description: "Immediate notifications to stakeholders and emergency services"
+      }
+    ].map((step, index) => (
+      <motion.div
+        key={step.step}
+        className="step-card"
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.2 }}
+        whileHover={{ scale: 1.05 }}
+      >
+        <div className="step-number">{step.step}</div>
+        <h3>{step.title}</h3>
+        <p>{step.description}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
       {/* CTA Section */}
       <section className="cta">
         <motion.div

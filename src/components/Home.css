@@ -170,7 +170,217 @@
   .feature-card p {
     color: #636e72;
   }
+  /* Testimonials Section */
+.testimonials {
+  padding: 6rem 2rem;
+  background: #f8f9fa;
+}
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #2d3436;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card .quote {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.testimonial-card .author {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-card .position {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 6rem 2rem;
+  background: white;
+}
+.how-it-works h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #2d3436;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-card {
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #007bff, #00bcd4);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-weight: bold;
+}
+
+.step-card h3 {
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.step-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid,
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
   
+  .testimonials,
+  .how-it-works {
+    padding: 4rem 1rem;
+  }
+}
+/* Mockup Section with Split Layout */
+.mockup-section {
+  padding: 6rem 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.mockup-split-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.mockup-content {
+  padding-right: 2rem;
+}
+
+.mockup-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #007bff, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mockup-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.app-features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.app-features-list li {
+  padding: 0.5rem 0;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.app-features-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.mockup-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup-image {
+  max-width: 60%; /* Reduced from 80% */
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .mockup-split-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .mockup-content {
+    padding-right: 0;
+  }
+
+  .app-features-list li {
+    padding-left: 0;
+  }
+
+  .app-features-list li:before {
+    position: static;
+    margin-right: 0.5rem;
+  }
+
+  .mockup-image {
+    max-width: 40%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mockup-image {
+    max-width: 60%;
+  }
+}
+
   /* CTA Section */
   .cta {
     padding: 6rem 10%;
