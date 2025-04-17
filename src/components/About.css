@@ -118,6 +118,23 @@
     color: #666;
   }
   
+  .team-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Keep the placeholder for members without images */
+  .team-image-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff4b2b22, #ff416c22);
+    margin-bottom: 20px;
+  }
   @media (max-width: 968px) {
     .founders-grid,
     .team-grid {

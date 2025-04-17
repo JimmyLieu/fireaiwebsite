@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import './About.css';
+import founderImage from '../assets/mcastillo.jpg';
 
 function About() {
   return (
@@ -36,7 +37,8 @@ function About() {
             {
               name: "Matthew Castillo",
               role: "Founder",
-              bio: "Leading the vision of FireAI with expertise in AI and fire safety systems."
+              bio: "Leading the vision of FireAI with expertise in AI and fire safety systems.",
+              image: founderImage
             },
             {
               name: "Raf360_7905",
@@ -52,7 +54,15 @@ function About() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <div className="team-image-placeholder"></div>
+              {founder.image ? (
+                <img 
+                  src={founder.image} 
+                  alt={founder.name} 
+                  className="team-image" 
+                />
+              ) : (
+                <div className="team-image-placeholder"></div>
+              )}
               <h3>{founder.name}</h3>
               <p className="role">{founder.role}</p>
               <p className="bio">{founder.bio}</p>
@@ -75,17 +85,17 @@ function About() {
             {
               name: "Jimmy Lieu",
               role: "Software Developer",
-              bio: "Unicorn. Does Everything."
+              
             },
             {
-              name: "Kacey Lieu",
+              name: "Kacey Flores",
               role: "Software Developer",
-              bio: "Master of UI"
+              
             },
             {
-              name: "Antonio Lieu",
+              name: "Antonio Morelos",
               role: "Software Developer",
-              bio: "Asks Jimmy for help"
+              
             }
           ].map((member, index) => (
             <motion.div
