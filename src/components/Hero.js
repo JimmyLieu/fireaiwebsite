@@ -24,13 +24,7 @@ function Hero() {
         >
           Advanced AI-powered fire detection for early warning and prevention
         </motion.p>
-        <motion.button
-          className="cta-button"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get Started
-        </motion.button>
+        
       </motion.div>
       
       <motion.div

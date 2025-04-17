@@ -3,6 +3,7 @@ import './Home.css';
 import { useState, useEffect } from 'react';
 import heroImage from '../assets/hero-image.jpg';
 import mockupImage from '../assets/NotificationScreen.png';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [showScroll, setShowScroll] = useState(true);
@@ -41,15 +42,7 @@ function Home() {
             Advanced early warning system that detects fire hazards before they become catastrophic
           </motion.p>
 
-          <motion.div
-            className="hero-buttons"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <button className="primary-btn">Get Started</button>
-            <button className="secondary-btn">Watch Demo</button>
-          </motion.div>
+         
         </div>
 
         <motion.div
@@ -155,7 +148,7 @@ function Home() {
         <li>Instant push notifications</li>
         <li>Easy device management</li>
       </ul>
-      <button className="primary-btn">Download App</button>
+     
     </motion.div>
 
     <motion.div
@@ -275,7 +268,15 @@ function Home() {
         >
           <h2>Ready to Protect Your Property?</h2>
           <p>Get started with FireAI today and ensure the safety of your space</p>
-          <button className="primary-btn">Contact Us Now</button>
+          <Link to="/contact">
+  <motion.button 
+    className="primary-btn"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    Contact Us Now
+  </motion.button>
+</Link>
         </motion.div>
       </section>
 
