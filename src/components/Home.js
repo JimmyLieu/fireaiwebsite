@@ -166,7 +166,7 @@ function Home() {
     </motion.div>
   </div>
 </section>
-{/* Testimonials Section */}
+{/* Testimonials Section 
 <section className="testimonials">
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
@@ -209,7 +209,7 @@ function Home() {
     ))}
   </div>
 </section>
-
+*/}
 {/* How It Works Section */}
 <section className="how-it-works">
   <motion.h2
