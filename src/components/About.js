@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import './About.css';
-import founderImage from '../assets/mcastillo.jpg';
+import founderImage from '../assets/mcastillo.png';
+import founderImage2 from '../assets/rramirez.png';
 
 function About() {
   return (
@@ -43,7 +44,8 @@ function About() {
             {
               name: "Rafael Ramirez",
               role: "Co-Founder",
-              bio: "Bringing innovative solutions to fire detection technology."
+              bio: "Bringing innovative solutions to fire detection technology.",
+              image: founderImage2
             }
           ].map((founder, index) => (
             <motion.div
