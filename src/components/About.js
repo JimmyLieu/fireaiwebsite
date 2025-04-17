@@ -41,7 +41,7 @@ function About() {
               image: founderImage
             },
             {
-              name: "Raf360_7905",
+              name: "Rafael Ramirez",
               role: "Co-Founder",
               bio: "Bringing innovative solutions to fire detection technology."
             }

@@ -19,8 +19,8 @@ function Contact() {
     setStatus('sending');
 
     emailjs.send(
-      'service_35ebn7q', // Replace with your Service ID
-      'template_dexr3t7', // Replace with your Template ID
+      'service_35ebn7q', 
+      'template_dexr3t7',
       {
         from_name: `${formData.firstName} ${formData.lastName}`,
         to_name: 'FireAI Team',
@@ -28,7 +28,7 @@ function Contact() {
         topic: formData.topic,
         message: formData.message,
       },
-      'OnSIIdRwOzt6ep2Nq' // Replace with your Public Key
+      'OnSIIdRwOzt6ep2Nq' 
     )
     .then(() => {
       setStatus('success');
