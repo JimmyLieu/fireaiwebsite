@@ -1,7 +1,57 @@
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 import './Contact.css';
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    topic: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    emailjs.send(
+      'service_35ebn7q', // Replace with your Service ID
+      'template_dexr3t7', // Replace with your Template ID
+      {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        to_name: 'FireAI Team',
+        from_email: formData.email,
+        topic: formData.topic,
+        message: formData.message,
+      },
+      'OnSIIdRwOzt6ep2Nq' // Replace with your Public Key
+    )
+    .then(() => {
+      setStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        topic: '',
+        message: ''
+      });
+    }, (error) => {
+      setStatus('error');
+      console.log('Failed to send email:', error);
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className="contact-wrapper">
       <div className="contact-page">
@@ -52,22 +102,48 @@ function Contact() {
           <div className="contact-form-container">
             <h2>Send us a message</h2>
             
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
-                  <input type="text" placeholder="First Name" required />
+                  <input 
+                    type="text" 
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name" 
+                    required 
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="text" placeholder="Last Name" required />
+                  <input 
+                    type="text" 
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name" 
+                    required 
+                  />
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <input type="email" placeholder="Email Address" required />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address" 
+                    required 
+                  />
                 </div>
                 <div className="form-group">
-                  <select>
+                  <select 
+                    name="topic"
+                    value={formData.topic}
+                    onChange={handleChange}
+                    required
+                  >
                     <option value="">Select Topic</option>
                     <option value="demo">Request Demo</option>
                     <option value="quote">Get Quote</option>
@@ -78,19 +154,30 @@ function Contact() {
 
               <div className="form-group">
                 <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your message..."
                   rows="3"
                   required
-                ></textarea>
+                />
               </div>
 
               <motion.button 
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                disabled={status === 'sending'}
               >
-                Send Message
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </motion.button>
+
+              {status === 'success' && (
+                <div className="success-message">Message sent successfully!</div>
+              )}
+              {status === 'error' && (
+                <div className="error-message">Failed to send message. Please try again.</div>
+              )}
             </form>
           </div>
         </motion.div>
