@@ -20,7 +20,16 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Revolutionizing fire safety through artificial intelligence
+          FireAI was founded with a simple mission: to build AI technology that truly matters.
+          <br /><br />
+          Our team came together to address a problem with real consequences, inspired by the loss of a family member's small business to a fire—an experience that highlighted the importance of early, reliable detection.
+          <br /><br />
+          We began with controlled outdoor fire tests to study sensor behavior and understand what traditional detectors often miss, later advancing to live testing alongside professional firefighters.
+          <br /><br />
+          By analyzing environmental data over time, FireAI focuses on identifying fire risk earlier and more reliably than conventional approaches, providing clearer awareness when every second counts.
+          <br /><br />
+          Our team brings experience across applied machine learning, embedded systems, robotics, and risk analysis, with a focus on making fire detection more reliable for homes and families.
+
         </motion.p>
       </section>
 
@@ -38,13 +47,13 @@ function About() {
             {
               name: "Matthew Castillo",
               role: "Founder",
-              bio: "Leading the vision of FireAI with expertise in AI and fire safety systems.",
+              bio: "Leads AI algorithm development and business strategy. Computer Science honors graduate with insurance industry experience in risk assessment. Extensive development experience in computer vision and AI applications.",
               image: founderImage
             },
             {
               name: "Rafael Ramirez",
               role: "Co-Founder",
-              bio: "Bringing innovative solutions to fire detection technology.",
+              bio: "Oversees hardware integration and embedded systems for our detection devices. Led award-winning autonomous drone swarm project at UT Tyler, developing real-time computer vision for safety-critical applications.",
               image: founderImage2
             }
           ].map((founder, index) => (
@@ -57,10 +66,10 @@ function About() {
               transition={{ delay: index * 0.2 }}
             >
               {founder.image ? (
-                <img 
-                  src={founder.image} 
-                  alt={founder.name} 
-                  className="team-image" 
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="team-image"
                 />
               ) : (
                 <div className="team-image-placeholder"></div>
@@ -87,17 +96,19 @@ function About() {
             {
               name: "Jimmy Lieu",
               role: "Software Developer",
-              
+              bio: "Oversees AI development and model optimization. Research background in artificial intelligence and wireless communication technologies. Builds the core detection algorithms that identify fires in their earliest stages.",
             },
             {
               name: "Kacey Flores",
               role: "Software Developer",
-              
+              bio: "Oversees embedded hardware and low-level software architecture. Lead Software Engineer for ATMAE National Robotics Competition winners and NASA JSC Hackathon 2024 Honorable Mention. Builds the embedded architecture that enables real-time fire detection on devices.",
+
             },
             {
               name: "Antonio Morelos",
               role: "Software Developer",
-              
+              bio: "Software Engineer at FireAI, with experience developing and supporting multiple mobile applications. Graduated with Honors with a strong foundation in software engineering and applied development."
+
             }
           ].map((member, index) => (
             <motion.div
@@ -117,22 +128,7 @@ function About() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="mission">
-        <motion.div
-          className="mission-content"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2>Our Mission</h2>
-          <p>
-            At FireAI, we're committed to revolutionizing fire safety through cutting-edge 
-            artificial intelligence. Our mission is to protect lives and property by providing 
-            the most advanced early warning system for fire detection.
-          </p>
-        </motion.div>
-      </section>
+
     </div>
   );
 }
